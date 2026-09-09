@@ -41,6 +41,7 @@ Before teaching new Python material, assess the current ability in:
 - normal module execution and repeated-import behavior
 - function parameter binding: `*args`, `**kwargs`, keyword-only parameters, and positional-only parameters
 - higher-order functions, functions as first-class objects, `map()`, `filter()`, `reduce()`, `sorted(key=...)`, and lambda usage
+- Python List model and operations, including mutation/rebinding and shallow-copy reference behavior
 
 ### Exit condition
 
@@ -73,7 +74,7 @@ We know what is already solid, what is weak, and what should be skipped.
 
 ### 1.3 Data structures
 
-- [ ] list — **IN PROGRESS**; covered through list repetition and `+=`: ordered/mutable model, positive/negative indexing, index assignment, aliasing, `append()`, `extend()`, `insert()`, `remove()`, `pop()`, `clear()`, slicing and slice assignment, `len()`, membership, shallow copy, `index()`, `count()`, `reverse()`, `sort()`/`sorted()`, `reversed()`, `del`, `+`, repetition with shared-reference edge cases, and `+=`. A final revision is still required before completion.
+- [x] list — **COMPLETE**; covered ordered/mutable model, positive/negative indexing, index assignment, aliasing, `append()`, `extend()`, `insert()`, `remove()`, `pop()`, `clear()`, slicing and slice assignment, `len()`, membership, shallow copy, `index()`, `count()`, `reverse()`, `sort()`/`sorted()`, `reversed()`, `del`, `+`, repetition with shared-reference edge cases, and `+=`. Completed final 30-question retrieval revision; see `python/fundamentals/data-structures/list/28-list-revision-30-questions.md`.
 - [ ] tuple
 - [ ] set
 - [ ] dict
