@@ -10,7 +10,7 @@ This roadmap is deliberately finite and job-focused. It is not intended to make 
 
 ## Phase 0 — Baseline Assessment
 
-**Status: NEXT**
+**Status: IN PROGRESS**
 
 Before teaching new Python material, assess the current ability in:
 
@@ -28,6 +28,16 @@ Before teaching new Python material, assess the current ability in:
 - testing
 - debugging
 
+### Completed / established
+
+- functions and scope
+- closures
+- mutation vs rebinding
+- OOP fundamentals, inheritance, overriding, `super()`, and MRO
+- exception handling with `try/except/else/finally`
+- modules, namespaces, and import forms
+- packages, subpackages, `__init__.py`, package-level exports, and relative imports
+
 ### Exit condition
 
 We know what is already solid, what is weak, and what should be skipped.
@@ -40,97 +50,97 @@ We know what is already solid, what is weak, and what should be skipped.
 
 ### 1.1 Language and runtime model
 
-- objects and references
-- mutability and identity
-- namespaces and scope
-- imports and module loading
-- execution model
+- [x] objects and references
+- [x] mutability and identity
+- [x] namespaces and scope
+- [x] imports and module loading — foundational import forms covered; import resolution remains
+- [ ] execution model
 
 ### 1.2 Functions
 
-- parameters and arguments
-- positional/keyword arguments
-- default values
-- `*args` and `**kwargs`
-- closures
-- higher-order functions
-- function design
+- [x] parameters and arguments
+- [x] positional/keyword arguments
+- [x] default values
+- [ ] `*args` and `**kwargs`
+- [x] closures
+- [ ] higher-order functions
+- [x] function design
 
 ### 1.3 Data structures
 
-- list, tuple, set, dict
-- comprehensions
-- `collections`
-- choosing the appropriate structure
-- common performance characteristics
+- [x] list, tuple, set, dict
+- [ ] comprehensions
+- [ ] `collections`
+- [ ] choosing the appropriate structure
+- [ ] common performance characteristics
 
 ### 1.4 OOP
 
-- classes and instances
-- instance/class/static methods
-- inheritance
-- method overriding
-- `super()`
-- MRO
-- composition
-- abstraction
-- protocols/duck typing
-- dataclasses
+- [x] classes and instances
+- [ ] instance/class/static methods
+- [x] inheritance
+- [x] method overriding
+- [x] `super()`
+- [x] MRO
+- [ ] composition
+- [ ] abstraction
+- [ ] protocols/duck typing
+- [ ] dataclasses
 
 ### 1.5 Error handling
 
-- exception hierarchy
-- raising exceptions
-- custom exceptions
-- exception boundaries
-- `try/except/else/finally`
-- resource safety
+- [x] exception hierarchy
+- [ ] raising exceptions
+- [ ] custom exceptions
+- [ ] exception boundaries
+- [x] `try/except/else/finally`
+- [ ] resource safety
 
 ### 1.6 Python iteration model
 
-- iterable vs iterator
-- `iter()` / `next()`
-- generators
-- generator expressions
-- lazy evaluation
+- [ ] iterable vs iterator
+- [ ] `iter()` / `next()`
+- [ ] generators
+- [ ] generator expressions
+- [ ] lazy evaluation
 
 ### 1.7 Decorators
 
-- functions as objects
-- closures in decorators
-- preserving metadata
-- practical decorator patterns
+- [ ] functions as objects
+- [ ] closures in decorators
+- [ ] preserving metadata
+- [ ] practical decorator patterns
 
 ### 1.8 Context managers
 
-- `with`
-- context manager protocol
-- `contextlib`
-- resource lifecycle management
+- [ ] `with`
+- [ ] context manager protocol
+- [ ] `contextlib`
+- [ ] resource lifecycle management
 
 ### 1.9 Typing and data modelling
 
-- type hints
-- `Optional` / unions
-- collections typing
-- `Protocol`
-- `TypedDict`
-- dataclasses
-- practical static type checking
+- [ ] type hints
+- [ ] `Optional` / unions
+- [ ] collections typing
+- [ ] `Protocol`
+- [ ] `TypedDict`
+- [ ] dataclasses
+- [ ] practical static type checking
 
 ### 1.10 Standard library for engineering
 
-- `pathlib`
-- `os` / `sys`
-- `json`
-- `csv`
-- `datetime`
-- `re`
-- `collections`
-- `itertools`
-- `functools`
-- `subprocess`
-- `argparse`
+- [ ] `pathlib`
+- [ ] `os` / `sys`
+- [ ] `json`
+- [ ] `csv`
+- [ ] `datetime`
+- [ ] `re`
+- [ ] `collections`
+- [ ] `itertools`
+- [ ] `functools`
+- [ ] `subprocess`
+- [ ] `argparse`
 
 ### Exit condition
 
@@ -142,17 +152,17 @@ Can implement a small Python component from a specification, choose reasonable a
 
 **Goal:** Turn Python code into maintainable applications/packages.
 
-- virtual environments
-- dependency management
-- `pyproject.toml`
-- package layout
-- imports and package boundaries
-- configuration
-- environment variables
-- secrets handling
-- entry points / CLI basics
-- logging
-- application settings
+- [ ] virtual environments
+- [ ] dependency management
+- [ ] `pyproject.toml`
+- [x] package layout
+- [x] imports and package boundaries — package hierarchy, `__init__.py`, package exports, and relative imports covered
+- [ ] configuration
+- [ ] environment variables
+- [ ] secrets handling
+- [ ] entry points / CLI basics
+- [ ] logging
+- [ ] application settings
 
 ### Exit condition
 
@@ -164,18 +174,18 @@ Can create a clean Python application with reproducible dependencies and sensibl
 
 **Goal:** Understand the web layer before hiding it behind a framework.
 
-- client/server model
-- HTTP methods
-- status codes
-- headers
-- JSON
-- authentication concepts
-- REST principles
-- idempotency
-- pagination
-- error responses
-- API versioning basics
-- consuming APIs from Python
+- [ ] client/server model
+- [ ] HTTP methods
+- [ ] status codes
+- [ ] headers
+- [ ] JSON
+- [ ] authentication concepts
+- [ ] REST principles
+- [ ] idempotency
+- [ ] pagination
+- [ ] error responses
+- [ ] API versioning basics
+- [ ] consuming APIs from Python
 
 ### Exit condition
 
@@ -187,20 +197,20 @@ Can explain and consume a REST API confidently and design a basic API contract.
 
 **Goal:** Build production-style Python APIs.
 
-- FastAPI application structure
-- routing
-- path/query parameters
-- request bodies
-- Pydantic models
-- response models
-- validation
-- dependency injection
-- error handling
-- middleware basics
-- authentication/authorization
-- API documentation
-- background work
-- testing FastAPI applications
+- [ ] FastAPI application structure
+- [ ] routing
+- [ ] path/query parameters
+- [ ] request bodies
+- [ ] Pydantic models
+- [ ] response models
+- [ ] validation
+- [ ] dependency injection
+- [ ] error handling
+- [ ] middleware basics
+- [ ] authentication/authorization
+- [ ] API documentation
+- [ ] background work
+- [ ] testing FastAPI applications
 
 ### Exit condition
 
