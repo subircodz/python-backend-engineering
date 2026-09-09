@@ -73,7 +73,10 @@ We know what is already solid, what is weak, and what should be skipped.
 
 ### 1.3 Data structures
 
-- [x] list, tuple, set, dict
+- [ ] list — **IN PROGRESS**; covered through `len()`: ordered/mutable model, indexing, negative indexing, mutation and index assignment, aliasing, `append()`, `extend()`, `insert()`, `remove()`, `pop()`, `clear()`, slicing, and length
+- [ ] tuple
+- [ ] set
+- [ ] dict
 - [ ] comprehensions
 - [ ] `collections`
 - [ ] choosing the appropriate structure
