@@ -163,6 +163,165 @@ apply(triple, 10)
 
 This makes code more reusable because behavior can be supplied from outside.
 
+## `map()` — Transforming Items
+
+`map()` is a built-in higher-order function. It accepts a function and an iterable, then applies the function to each item.
+
+```python
+def double(x):
+    return x * 2
+
+numbers = [1, 2, 3, 4]
+result = map(double, numbers)
+```
+
+The function object `double` is passed to `map()` without calling it. `map()` calls it for each element.
+
+In Python 3, `map()` returns a lazy `map` object rather than immediately creating a list.
+
+```python
+values = list(result)
+# [2, 4, 6, 8]
+```
+
+Mental model:
+
+```text
+function object + iterable
+        ↓
+      map()
+        ↓
+apply function to every item
+        ↓
+lazy map object
+        ↓
+list(...) consumes it
+```
+
+## `filter()` — Selecting Items
+
+`filter()` is another built-in higher-order function. It applies a predicate function to items and keeps the items for which the predicate returns a truthy value.
+
+```python
+def is_positive(x):
+    return x > 0
+
+numbers = [-2, 5, -1, 8]
+result = filter(is_positive, numbers)
+```
+
+Like `map()`, `filter()` returns a lazy `filter` object in Python 3.
+
+```python
+values = list(result)
+# [5, 8]
+```
+
+Mental model:
+
+```text
+predicate function + iterable
+        ↓
+     filter()
+        ↓
+keep items where predicate is truthy
+        ↓
+lazy filter object
+        ↓
+list(...) consumes it
+```
+
+### `map()` vs `filter()`
+
+- `map()` → transforms every item
+- `filter()` → decides which items to keep
+
+For example:
+
+```python
+list(map(lambda x: x * 2, [1, 2, 3]))
+# [2, 4, 6]
+
+list(filter(lambda x: x > 0, [-2, 5, -1, 8]))
+# [5, 8]
+```
+
+## Why `double` and Not `double()`?
+
+When passing a function to a higher-order function, pass the function object:
+
+```python
+map(double, numbers)
+```
+
+not the result of calling it:
+
+```python
+map(double(), numbers)  # wrong for this purpose
+```
+
+Mental model:
+
+```text
+double    → function object
+double()  → function call → return value
+```
+
+`map()` needs the function object because it is responsible for calling the function for each element.
+
+## Lambda Functions
+
+A `lambda` creates a function object using a compact expression:
+
+```python
+lambda x: x * 2
+```
+
+It is commonly useful for short, simple, local behavior, especially when the function is needed only at the point where it is used.
+
+Example:
+
+```python
+numbers = [1, 2, 3, 4]
+result = list(map(lambda x: x + 5, numbers))
+# [6, 7, 8, 9]
+```
+
+The lambda expression represents a function object. `map()` receives that function object and calls it for each element.
+
+### Lambda vs `def`
+
+Do not use the rule **"one line means lambda and multiple lines mean `def`"** as an absolute rule.
+
+Prefer `lambda` when the behavior is:
+
+- short
+- simple
+- local/throwaway
+- naturally expressed as one expression
+
+Prefer `def` when the behavior:
+
+- has a meaningful name
+- is reusable
+- represents business/domain logic
+- may need documentation
+- should be tested independently
+- is complex enough that a named function improves readability
+
+For example, even though this function is only one line, `def` is clearer because the calculation has a meaningful purpose:
+
+```python
+def calculate_tax(amount):
+    return amount * 0.18
+```
+
+Whereas a small local transformation may be clearer inline:
+
+```python
+result = list(map(lambda x: x * 2, numbers))
+```
+
 ## Mental Model
 
 ```text
@@ -173,6 +332,10 @@ can be passed
 can be returned
     ↓
 Higher-order functions use functions as values
+    ↓
+map() transforms items
+filter() selects items
+lambda creates compact function objects
     ↓
 Closures are a separate concept
     ↓
@@ -188,5 +351,10 @@ A HOF may be a closure-related pattern, but it does not have to be a closure
 - A closure retains access to variables from an enclosing scope.
 - Higher-order function and closure are different concepts.
 - Each invocation of a closure-producing function can create a separate closure with its own retained values.
+- `map()` applies a function to every item and returns a lazy `map` object.
+- `filter()` applies a predicate and keeps items where the predicate is truthy, returning a lazy `filter` object.
+- Pass `double`, not `double()`, when a higher-order function needs the function object.
+- `lambda` is useful for short, simple, local behavior.
+- `def` is preferable when behavior has a meaningful name, reuse, documentation, testing needs, or greater complexity.
 
 Preferred workflow: **predict → explain the object/reference flow → check → correct the mental model**.
