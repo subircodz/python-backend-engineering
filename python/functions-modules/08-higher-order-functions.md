@@ -246,6 +246,107 @@ list(filter(lambda x: x > 0, [-2, 5, -1, 8]))
 # [5, 8]
 ```
 
+## `reduce()` — Combining Items
+
+`reduce()` is a higher-order function provided by `functools`. Instead of producing one result per input item like `map()`, it repeatedly combines values to produce a single accumulated result.
+
+```python
+from functools import reduce
+
+numbers = [1, 2, 3, 4]
+result = reduce(lambda total, x: total + x, numbers)
+# 10
+```
+
+Conceptually, the function is applied progressively:
+
+```text
+1 + 2 → 3
+3 + 3 → 6
+6 + 4 → 10
+```
+
+With an initial value:
+
+```python
+result = reduce(lambda total, x: total + x, numbers, 100)
+# 110
+```
+
+The initial value becomes the starting accumulator:
+
+```text
+100 + 1 → 101
+101 + 2 → 103
+103 + 3 → 106
+106 + 4 → 110
+```
+
+Mental model:
+
+```text
+function + iterable (+ optional initial value)
+        ↓
+     reduce()
+        ↓
+repeatedly combine accumulator with next item
+        ↓
+one final accumulated result
+```
+
+Use `reduce()` when the operation naturally represents an accumulation. In production code, prefer clearer alternatives such as `sum()`, `max()`, `min()`, or an explicit loop when they communicate the intent better.
+
+## `sorted()` with `key`
+
+`sorted()` accepts a `key` function that tells it what value to use when ordering each element.
+
+```python
+names = ["Subir", "Raj", "Alexander"]
+result = sorted(names, key=len)
+# ["Raj", "Subir", "Alexander"]
+```
+
+`len` is passed as a function object. `sorted()` calls it for each element and uses the returned lengths as the sorting keys:
+
+```text
+"Subir"     → len(...) → 5
+"Raj"       → len(...) → 3
+"Alexander" → len(...) → 9
+```
+
+`sorted()` returns a **new list**. It does not modify the original iterable.
+
+A lambda can provide a custom key calculation:
+
+```python
+names = ["subir", "RAJ", "Alexander", "bob"]
+result = sorted(names, key=lambda name: name.lower())
+```
+
+The lambda returns lowercase strings used for comparison. The original strings are not transformed; the returned list still contains the original string values.
+
+The `key` argument follows the same function-object mental model as `map()` and `filter()`:
+
+```text
+key=len
+  ↓
+function object
+  ↓
+sorted() calls len() for each item
+  ↓
+returned values determine ordering
+```
+
+For descending numeric ordering, a key function can return negative values:
+
+```python
+numbers = [10, 3, 25, 7, 2]
+result = sorted(numbers, key=lambda x: -x)
+# [25, 10, 7, 3, 2]
+```
+
+Here `x` is the current value, so `-x` negates it. `x()` would incorrectly attempt to call the value as a function.
+
 ## Why `double` and Not `double()`?
 
 When passing a function to a higher-order function, pass the function object:
@@ -335,6 +436,8 @@ Higher-order functions use functions as values
     ↓
 map() transforms items
 filter() selects items
+reduce() combines items into an accumulated result
+sorted(key=...) orders items using values returned by the key function
 lambda creates compact function objects
     ↓
 Closures are a separate concept
@@ -353,6 +456,8 @@ A HOF may be a closure-related pattern, but it does not have to be a closure
 - Each invocation of a closure-producing function can create a separate closure with its own retained values.
 - `map()` applies a function to every item and returns a lazy `map` object.
 - `filter()` applies a predicate and keeps items where the predicate is truthy, returning a lazy `filter` object.
+- `reduce()` repeatedly combines values and produces one accumulated result; it is provided by `functools`.
+- `sorted(key=...)` uses the function object's returned key values to determine ordering and returns a new list.
 - Pass `double`, not `double()`, when a higher-order function needs the function object.
 - `lambda` is useful for short, simple, local behavior.
 - `def` is preferable when behavior has a meaningful name, reuse, documentation, testing needs, or greater complexity.
