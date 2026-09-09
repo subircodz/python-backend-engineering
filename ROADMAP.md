@@ -39,6 +39,7 @@ Before teaching new Python material, assess the current ability in:
 - packages, subpackages, `__init__.py`, package-level exports, and relative imports
 - import resolution, `sys.path`, and `sys.modules`
 - normal module execution and repeated-import behavior
+- function parameter binding: `*args`, `**kwargs`, keyword-only parameters, and positional-only parameters
 
 ### Exit condition
 
@@ -63,7 +64,8 @@ We know what is already solid, what is weak, and what should be skipped.
 - [x] parameters and arguments
 - [x] positional/keyword arguments
 - [x] default values
-- [ ] `*args` and `**kwargs`
+- [x] `*args` and `**kwargs` — collection, unpacking, and tuple/dictionary behavior covered
+- [x] parameter binding rules — normal parameters, `*args`, keyword-only parameters, positional-only parameters, and `**kwargs`
 - [x] closures
 - [ ] higher-order functions
 - [x] function design
