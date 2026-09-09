@@ -73,7 +73,7 @@ We know what is already solid, what is weak, and what should be skipped.
 
 ### 1.3 Data structures
 
-- [ ] list — **IN PROGRESS**; covered through `len()`: ordered/mutable model, indexing, negative indexing, mutation and index assignment, aliasing, `append()`, `extend()`, `insert()`, `remove()`, `pop()`, `clear()`, slicing, and length
+- [ ] list — **IN PROGRESS**; covered through list repetition and `+=`: ordered/mutable model, positive/negative indexing, index assignment, aliasing, `append()`, `extend()`, `insert()`, `remove()`, `pop()`, `clear()`, slicing and slice assignment, `len()`, membership, shallow copy, `index()`, `count()`, `reverse()`, `sort()`/`sorted()`, `reversed()`, `del`, `+`, repetition with shared-reference edge cases, and `+=`. A final revision is still required before completion.
 - [ ] tuple
 - [ ] set
 - [ ] dict
