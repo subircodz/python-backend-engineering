@@ -1,0 +1,527 @@
+# Python Backend Engineering Roadmap
+
+## Mission
+
+Become employable as a **Python Backend / Automation Engineer** by turning existing software-engineering knowledge into demonstrable Python engineering ability.
+
+This roadmap is deliberately finite and job-focused. It is not intended to make the learner an expert in every Python technology before applying for work.
+
+---
+
+## Phase 0 — Baseline Assessment
+
+**Status: NEXT**
+
+Before teaching new Python material, assess the current ability in:
+
+- Python fundamentals
+- functions and scope
+- data structures
+- OOP
+- exceptions
+- modules/packages
+- iterators/generators
+- decorators/context managers
+- typing
+- filesystem/data handling
+- HTTP/API usage
+- testing
+- debugging
+
+### Exit condition
+
+We know what is already solid, what is weak, and what should be skipped.
+
+---
+
+# Phase 1 — Python Engineering Core
+
+**Goal:** Write maintainable Python without depending on tutorial patterns.
+
+### 1.1 Language and runtime model
+
+- objects and references
+- mutability and identity
+- namespaces and scope
+- imports and module loading
+- execution model
+
+### 1.2 Functions
+
+- parameters and arguments
+- positional/keyword arguments
+- default values
+- `*args` and `**kwargs`
+- closures
+- higher-order functions
+- function design
+
+### 1.3 Data structures
+
+- list, tuple, set, dict
+- comprehensions
+- `collections`
+- choosing the appropriate structure
+- common performance characteristics
+
+### 1.4 OOP
+
+- classes and instances
+- instance/class/static methods
+- inheritance
+- method overriding
+- `super()`
+- MRO
+- composition
+- abstraction
+- protocols/duck typing
+- dataclasses
+
+### 1.5 Error handling
+
+- exception hierarchy
+- raising exceptions
+- custom exceptions
+- exception boundaries
+- `try/except/else/finally`
+- resource safety
+
+### 1.6 Python iteration model
+
+- iterable vs iterator
+- `iter()` / `next()`
+- generators
+- generator expressions
+- lazy evaluation
+
+### 1.7 Decorators
+
+- functions as objects
+- closures in decorators
+- preserving metadata
+- practical decorator patterns
+
+### 1.8 Context managers
+
+- `with`
+- context manager protocol
+- `contextlib`
+- resource lifecycle management
+
+### 1.9 Typing and data modelling
+
+- type hints
+- `Optional` / unions
+- collections typing
+- `Protocol`
+- `TypedDict`
+- dataclasses
+- practical static type checking
+
+### 1.10 Standard library for engineering
+
+- `pathlib`
+- `os` / `sys`
+- `json`
+- `csv`
+- `datetime`
+- `re`
+- `collections`
+- `itertools`
+- `functools`
+- `subprocess`
+- `argparse`
+
+### Exit condition
+
+Can implement a small Python component from a specification, choose reasonable abstractions, handle failures, and write tests for it.
+
+---
+
+# Phase 2 — Python Packaging and Application Structure
+
+**Goal:** Turn Python code into maintainable applications/packages.
+
+- virtual environments
+- dependency management
+- `pyproject.toml`
+- package layout
+- imports and package boundaries
+- configuration
+- environment variables
+- secrets handling
+- entry points / CLI basics
+- logging
+- application settings
+
+### Exit condition
+
+Can create a clean Python application with reproducible dependencies and sensible configuration.
+
+---
+
+# Phase 3 — HTTP and APIs
+
+**Goal:** Understand the web layer before hiding it behind a framework.
+
+- client/server model
+- HTTP methods
+- status codes
+- headers
+- JSON
+- authentication concepts
+- REST principles
+- idempotency
+- pagination
+- error responses
+- API versioning basics
+- consuming APIs from Python
+
+### Exit condition
+
+Can explain and consume a REST API confidently and design a basic API contract.
+
+---
+
+# Phase 4 — FastAPI Backend Development
+
+**Goal:** Build production-style Python APIs.
+
+- FastAPI application structure
+- routing
+- path/query parameters
+- request bodies
+- Pydantic models
+- response models
+- validation
+- dependency injection
+- error handling
+- middleware basics
+- authentication/authorization
+- API documentation
+- background work
+- testing FastAPI applications
+
+### Exit condition
+
+Can independently build a documented, validated and tested REST API.
+
+---
+
+# Phase 5 — SQL and PostgreSQL
+
+**Goal:** Build database-backed applications.
+
+### SQL
+
+- SELECT/filtering
+- joins
+- grouping/aggregation
+- subqueries
+- CTEs
+- window functions
+- transactions
+- constraints
+- indexes
+- query reasoning
+
+### PostgreSQL
+
+- database/schema/table design
+- data types
+- constraints
+- indexes
+- transactions
+- practical performance basics
+
+### SQLAlchemy
+
+- engine/session model
+- models
+- relationships
+- queries
+- transactions
+- migrations concepts
+
+### Exit condition
+
+Can design a small relational schema and build a Python service that safely reads/writes PostgreSQL data.
+
+---
+
+# Phase 6 — Testing and Quality
+
+**Goal:** Demonstrate that the code works and remains maintainable.
+
+- pytest
+- fixtures
+- parametrization
+- mocking
+- unit tests
+- integration tests
+- API tests
+- database tests
+- test boundaries
+- testable design
+- coverage as a signal, not a target
+- linting/formatting
+- static checking
+
+### Exit condition
+
+Can design a sensible test strategy and diagnose a failing test rather than simply adding assertions until CI passes.
+
+---
+
+# Phase 7 — Docker and CI/CD
+
+**Goal:** Move from “works on my machine” toward reproducible software delivery.
+
+- Docker fundamentals
+- Dockerfile
+- image/container model
+- environment configuration
+- Docker Compose basics
+- application + database locally
+- GitHub Actions
+- test automation
+- linting in CI
+- build verification
+
+### Exit condition
+
+A project can be cloned, tested and run consistently by another developer.
+
+---
+
+# Phase 8 — Production Engineering Basics
+
+**Goal:** Understand the problems that appear after the happy path works.
+
+- structured logging
+- configuration separation
+- graceful failure
+- retries and timeouts
+- validation at boundaries
+- health checks
+- security basics
+- dependency updates
+- debugging production failures
+- basic performance reasoning
+- API reliability
+
+### Exit condition
+
+Can identify and address common reliability problems in a backend service.
+
+---
+
+# Phase 9 — Automation Engineering
+
+**Goal:** Use Python to automate real business and engineering workflows.
+
+- API automation
+- file/data automation
+- database automation
+- subprocess/system integration
+- scheduled jobs
+- background workers
+- browser automation where appropriate
+- retries/timeouts
+- idempotent automation
+- logging and auditability
+
+### Exit condition
+
+Can build a reliable automation workflow rather than a one-off script.
+
+---
+
+# Phase 10 — Portfolio Projects
+
+Projects are evidence, not decoration.
+
+## Project 01 — Python Service
+
+Demonstrate:
+
+- clean Python structure
+- domain/service separation
+- exceptions
+- logging
+- configuration
+- tests
+- packaging
+
+## Project 02 — Backend API
+
+Demonstrate:
+
+- FastAPI
+- PostgreSQL
+- SQLAlchemy
+- authentication
+- validation
+- error handling
+- pytest
+- Docker
+- GitHub Actions
+- documentation
+
+## Project 03 — Automation System
+
+Demonstrate:
+
+- external API integration
+- data processing
+- persistence
+- scheduled/background execution
+- retries/timeouts
+- logging
+- tests
+- failure recovery
+
+### Exit condition
+
+At least one project should be strong enough to discuss deeply in an interview, including architecture, trade-offs, testing and failure scenarios.
+
+---
+
+# Phase 11 — Interview Readiness
+
+This phase starts **before** the roadmap is complete.
+
+### Python
+
+- language fundamentals
+- OOP
+- exceptions
+- iterators/generators
+- decorators
+- context managers
+- typing
+- debugging
+
+### Backend
+
+- HTTP
+- REST
+- FastAPI
+- authentication
+- databases
+- transactions
+- API design
+
+### SQL
+
+- joins
+- grouping
+- subqueries
+- CTEs
+- window functions
+
+### DSA
+
+Only the level justified by target job postings:
+
+- arrays/strings
+- hash maps/sets
+- stacks/queues
+- linked lists
+- trees
+- sorting/searching
+- complexity
+
+### Project interview
+
+Be able to answer:
+
+- Why did you structure it this way?
+- What happens when the database is unavailable?
+- How did you test it?
+- Where can it fail?
+- How would you scale it?
+- What would you change in the next version?
+
+---
+
+# Phase 12 — Job Application Loop
+
+**This does not wait for roadmap completion.**
+
+```text
+Learn
+  ↓
+Build
+  ↓
+Publish evidence
+  ↓
+Apply
+  ↓
+Interview
+  ↓
+Record gaps
+  ↓
+Close gaps
+  ↓
+Apply again
+```
+
+Target titles will be selected from actual vacancies rather than from the label “Python Developer” alone.
+
+Possible target families:
+
+- Junior Python Developer
+- Python Backend Developer
+- Backend Developer (Python)
+- Python Automation Engineer
+- Automation Developer
+- QA/Automation Engineer with Python
+- Python API Developer
+- AI/Automation Developer when the foundation is ready
+
+---
+
+# Deferred Topics
+
+These are intentionally **not prerequisites for the first job**:
+
+- advanced distributed systems
+- Kubernetes
+- deep cloud architecture
+- microservices at scale
+- Kafka-heavy architectures
+- advanced DevOps
+- machine learning theory
+- deep learning
+- advanced LLM engineering
+- RAG/vector databases
+- autonomous agents
+
+They can be introduced when a target role requires them or after employability is established.
+
+---
+
+# Definition of Job Ready
+
+The repository is not “complete” because every folder has files.
+
+The first job-ready milestone is reached when the learner can:
+
+1. write maintainable Python
+2. explain the Python concepts used
+3. build a REST API with FastAPI
+4. work with SQL/PostgreSQL
+5. use SQLAlchemy appropriately
+6. write meaningful pytest tests
+7. use Git confidently
+8. run the application with Docker
+9. automate testing with CI
+10. debug failures
+11. explain a substantial project end-to-end
+12. solve common interview-level Python/SQL problems
+13. apply to relevant vacancies with credible evidence
+
+## Guiding Rule
+
+> **If a topic does not materially improve our ability to get, perform, or interview for a target job, it is not automatically part of the roadmap.**
