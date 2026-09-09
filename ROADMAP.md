@@ -40,7 +40,7 @@ Before teaching new Python material, assess the current ability in:
 - import resolution, `sys.path`, and `sys.modules`
 - normal module execution and repeated-import behavior
 - function parameter binding: `*args`, `**kwargs`, keyword-only parameters, and positional-only parameters
-- higher-order functions, functions as first-class objects, `map()`, `filter()`, and lambda usage
+- higher-order functions, functions as first-class objects, `map()`, `filter()`, `reduce()`, `sorted(key=...)`, and lambda usage
 
 ### Exit condition
 
@@ -68,7 +68,7 @@ We know what is already solid, what is weak, and what should be skipped.
 - [x] `*args` and `**kwargs` — collection, unpacking, and tuple/dictionary behavior covered
 - [x] parameter binding rules — normal parameters, `*args`, keyword-only parameters, positional-only parameters, and `**kwargs`
 - [x] closures
-- [x] higher-order functions — function objects, passing/returning functions, `map()`, `filter()`, lambda, and production-oriented lambda vs `def` choice
+- [x] higher-order functions — function objects, passing/returning functions, `map()`, `filter()`, `reduce()`, `sorted(key=...)`, lambda, and production-oriented lambda vs `def` choice
 - [x] function design
 
 ### 1.3 Data structures
