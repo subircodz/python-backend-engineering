@@ -37,6 +37,8 @@ Before teaching new Python material, assess the current ability in:
 - exception handling with `try/except/else/finally`
 - modules, namespaces, and import forms
 - packages, subpackages, `__init__.py`, package-level exports, and relative imports
+- import resolution, `sys.path`, and `sys.modules`
+- normal module execution and repeated-import behavior
 
 ### Exit condition
 
@@ -53,8 +55,8 @@ We know what is already solid, what is weak, and what should be skipped.
 - [x] objects and references
 - [x] mutability and identity
 - [x] namespaces and scope
-- [x] imports and module loading — foundational import forms covered; import resolution remains
-- [ ] execution model
+- [x] imports and module loading — import forms, package boundaries, import resolution, `sys.path`, `sys.modules`, and repeated imports covered
+- [x] execution model — normal module execution and function-definition vs function-call behavior covered
 
 ### 1.2 Functions
 
