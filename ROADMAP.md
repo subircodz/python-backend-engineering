@@ -42,6 +42,7 @@ Before teaching new Python material, assess the current ability in:
 - function parameter binding: `*args`, `**kwargs`, keyword-only parameters, and positional-only parameters
 - higher-order functions, functions as first-class objects, `map()`, `filter()`, `reduce()`, `sorted(key=...)`, and lambda usage
 - Python List model and operations, including mutation/rebinding and shallow-copy reference behavior
+- fundamental `for` loop model, including iteration, loop-variable rebinding, post-loop binding, mutation through the loop variable, and effects of modifying a list during iteration
 
 ### Exit condition
 
@@ -75,6 +76,7 @@ We know what is already solid, what is weak, and what should be skipped.
 ### 1.3 Data structures
 
 - [x] list — **COMPLETE**; covered ordered/mutable model, positive/negative indexing, index assignment, aliasing, `append()`, `extend()`, `insert()`, `remove()`, `pop()`, `clear()`, slicing and slice assignment, `len()`, membership, shallow copy, `index()`, `count()`, `reverse()`, `sort()`/`sorted()`, `reversed()`, `del`, `+`, repetition with shared-reference edge cases, and `+=`. Completed final 30-question retrieval revision; see `python/fundamentals/data-structures/list/28-list-revision-30-questions.md`.
+- [x] fundamental `for` loops — **COMPLETE**; covered iteration over lists, loop-variable rebinding and post-loop binding, mutation vs rebinding, nested-object mutation, `+=` vs `+`, and mutation of the iterated list including skipped elements. See `python/fundamentals/for-loops/01-for-loop-fundamentals.md`.
 - [ ] tuple
 - [ ] set
 - [ ] dict
@@ -159,7 +161,7 @@ Can implement a small Python component from a specification, choose reasonable a
 
 # Phase 2 — Python Packaging and Application Structure
 
-**Goal:** Turn Python code into maintainable applications/packages.
+**Goal:** Turn Python code into maintainable applications.
 
 - [ ] virtual environments
 - [ ] dependency management
