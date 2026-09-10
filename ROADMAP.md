@@ -46,6 +46,7 @@ Before teaching new Python material, assess the current ability in:
 - Python Tuple fundamentals, including ordered access, immutability vs rebinding, mutable objects stored inside tuples, and basic unpacking
 - Python Tuple creation and syntax, including comma-based tuple creation, single-element tuples, empty tuples, nested tuples, and `tuple()` construction
 - Python Tuple packing and unpacking, including extended unpacking with `*`, function-call unpacking with `*`, argument collection with `*args`, keyword unpacking/collection with `**kwargs`, swapping, and reference behavior with mutable objects
+- Python Tuple methods and operations, including `count()`, `index()`, concatenation, repetition, membership, indexing, slicing, `len()`, numeric built-ins, comparisons, `+=` rebinding, and mutable objects stored inside tuples
 
 ### Exit condition
 
@@ -83,6 +84,7 @@ We know what is already solid, what is weak, and what should be skipped.
 - [x] tuple — **COMPLETE: fundamentals**; covered ordered access, immutability vs rebinding, mutable objects stored inside tuples, and basic unpacking. See `python/fundamentals/data-structures/tuple/01-tuple-fundamentals.md`.
 - [x] tuple creation and syntax — **COMPLETE**; covered comma-based tuple creation, single-element tuple syntax, empty/nested tuples, and `tuple()` construction. See `python/fundamentals/data-structures/tuple/02-tuple-creation-and-syntax.md`.
 - [x] tuple packing and unpacking — **COMPLETE**; covered tuple packing, iterable unpacking, extended unpacking with `*`, starred-target list behavior, `_` as a conventional throwaway binding, `func(*values)`, `*args`, `**kwargs`, swapping, and mutable-object reference behavior. See `python/fundamentals/data-structures/tuple/03-tuple-packing-and-unpacking.md`.
+- [x] tuple methods and operations — **COMPLETE**; covered `count()`, `index()`, `+`, `*`, `in`/`not in`, indexing, slicing, `len()`, `min()`/`max()`/`sum()`, lexicographical ordering, equality, `+=` as new-tuple creation plus rebinding, and mutable objects stored inside tuples. See `python/fundamentals/data-structures/tuple/04-tuple-methods-and-operations.md`.
 - [ ] set
 - [ ] dict
 - [ ] comprehensions
