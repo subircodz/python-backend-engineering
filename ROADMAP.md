@@ -44,6 +44,7 @@ Before teaching new Python material, assess the current ability in:
 - Python List model and operations, including mutation/rebinding and shallow-copy reference behavior
 - fundamental `for` loop model, including iteration, loop-variable rebinding, post-loop binding, mutation through the loop variable, and effects of modifying a list during iteration
 - Python Tuple fundamentals, including ordered access, immutability vs rebinding, mutable objects stored inside tuples, and basic unpacking
+- Python Tuple creation and syntax, including comma-based tuple creation, single-element tuples, empty tuples, nested tuples, and `tuple()` construction
 
 ### Exit condition
 
@@ -79,6 +80,8 @@ We know what is already solid, what is weak, and what should be skipped.
 - [x] list — **COMPLETE**; covered ordered/mutable model, positive/negative indexing, index assignment, aliasing, `append()`, `extend()`, `insert()`, `remove()`, `pop()`, `clear()`, slicing and slice assignment, `len()`, membership, shallow copy, `index()`, `count()`, `reverse()`, `sort()`/`sorted()`, `reversed()`, `del`, `+`, repetition with shared-reference edge cases, and `+=`. Completed final 30-question retrieval revision; see `python/fundamentals/data-structures/list/28-list-revision-30-questions.md`.
 - [x] fundamental `for` loops — **COMPLETE**; covered iteration over lists, loop-variable rebinding and post-loop binding, mutation vs rebinding, nested-object mutation, `+=` vs `+`, and mutation of the iterated list including skipped elements. See `python/fundamentals/for-loops/01-for-loop-fundamentals.md`.
 - [x] tuple — **COMPLETE: fundamentals**; covered ordered access, immutability vs rebinding, mutable objects stored inside tuples, and basic unpacking. See `python/fundamentals/data-structures/tuple/01-tuple-fundamentals.md`.
+- [x] tuple creation and syntax — **COMPLETE**; covered comma-based tuple creation, single-element tuple syntax, empty/nested tuples, and `tuple()` construction. See `python/fundamentals/data-structures/tuple/02-tuple-creation-and-syntax.md`.
+- [ ] tuple packing and unpacking
 - [ ] set
 - [ ] dict
 - [ ] comprehensions
