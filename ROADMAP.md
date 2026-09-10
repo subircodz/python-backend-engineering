@@ -48,6 +48,7 @@ Before teaching new Python material, assess the current ability in:
 - Python Tuple packing and unpacking, including extended unpacking with `*`, function-call unpacking with `*`, argument collection with `*args`, keyword unpacking/collection with `**kwargs`, swapping, and reference behavior with mutable objects
 - Python Tuple methods and operations, including `count()`, `index()`, concatenation, repetition, membership, indexing, slicing, `len()`, numeric built-ins, comparisons, `+=` rebinding, and mutable objects stored inside tuples
 - Python Set fundamentals, including uniqueness, mutability, lack of positional indexing, hashable element requirements, set creation, empty-set syntax, membership testing, and the set-vs-list/tuple mental model
+- Python Set creation and syntax, including set literals, empty-set syntax, `set()` construction from iterables, hashable element requirements, string/iterable behavior, literal-vs-constructor choice, and type preservation
 
 ### Exit condition
 
@@ -86,7 +87,7 @@ We know what is already solid, what is weak, and what should be skipped.
 - [x] tuple creation and syntax — **COMPLETE**; covered comma-based tuple creation, single-element tuple syntax, empty/nested tuples, and `tuple()` construction. See `python/fundamentals/data-structures/tuple/02-tuple-creation-and-syntax.md`.
 - [x] tuple packing and unpacking — **COMPLETE**; covered tuple packing, iterable unpacking, extended unpacking with `*`, starred-target list behavior, `_` as a conventional throwaway binding, `func(*values)`, `*args`, `**kwargs`, swapping, and mutable-object reference behavior. See `python/fundamentals/data-structures/tuple/03-tuple-packing-and-unpacking.md`.
 - [x] tuple methods and operations — **COMPLETE**; covered `count()`, `index()`, `+`, `*`, `in`/`not in`, indexing, slicing, `len()`, `min()`/`max()`/`sum()`, lexicographical ordering, equality, `+=` as new-tuple creation plus rebinding, and mutable objects stored inside tuples. See `python/fundamentals/data-structures/tuple/04-tuple-methods-and-operations.md`.
-- [ ] set — **FUNDAMENTALS COMPLETE**; see `python/fundamentals/data-structures/set/01-set-fundamentals.md`. Set creation/syntax, methods/operations, and deeper use cases remain.
+- [ ] set — **CREATION AND SYNTAX COMPLETE**; covered set literals, empty-set syntax, `set()` construction from iterables, hashable element requirements, string/iterable behavior, literal-vs-constructor choice, and type preservation. See `python/fundamentals/data-structures/set/02-set-creation-and-syntax.md`. Set methods/operations and deeper use cases remain.
 - [ ] dict
 - [ ] comprehensions
 - [ ] `collections`
