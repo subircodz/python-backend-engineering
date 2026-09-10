@@ -50,6 +50,7 @@ Before teaching new Python material, assess the current ability in:
 - Python Set fundamentals, including uniqueness, mutability, lack of positional indexing, hashable element requirements, set creation, empty-set syntax, membership testing, and the set-vs-list/tuple mental model
 - Python Set creation and syntax, including set literals, empty-set syntax, `set()` construction from iterables, hashable element requirements, string/iterable behavior, literal-vs-constructor choice, and type preservation
 - Python Set methods and operations, including `add()`, `update()`, `remove()`, `discard()`, `pop()`, `clear()`, union, intersection, difference, symmetric difference, in-place set operators, subset, superset, disjoint checks, mutation vs rebinding, and practical production use cases
+- Python Dictionary fundamentals, including the key → value mapping model, unique keys, mutability vs rebinding, key-based lookup, `KeyError`, hashable key requirements, mutable/unhashable values, and mapping updates
 
 ### Exit condition
 
@@ -89,7 +90,7 @@ We know what is already solid, what is weak, and what should be skipped.
 - [x] tuple packing and unpacking — **COMPLETE**; covered tuple packing, iterable unpacking, extended unpacking with `*`, starred-target list behavior, `_` as a conventional throwaway binding, `func(*values)`, `*args`, `**kwargs`, swapping, and mutable-object reference behavior. See `python/fundamentals/data-structures/tuple/03-tuple-packing-and-unpacking.md`.
 - [x] tuple methods and operations — **COMPLETE**; covered `count()`, `index()`, `+`, `*`, `in`/`not in`, indexing, slicing, `len()`, `min()`/`max()`/`sum()`, lexicographical ordering, equality, `+=` as new-tuple creation plus rebinding, and mutable objects stored inside tuples. See `python/fundamentals/data-structures/tuple/04-tuple-methods-and-operations.md`.
 - [x] set — **COMPLETE**; covered set fundamentals, creation and syntax, set literals, empty-set syntax, `set()` construction from iterables, hashable element requirements, string/iterable behavior, literal-vs-constructor choice, type preservation, methods and operations, set relationships, in-place operations, mutation vs rebinding, and practical production use cases. See `python/fundamentals/data-structures/set/01-set-fundamentals.md`, `02-set-creation-and-syntax.md`, and `03-set-methods-and-operations.md`.
-- [ ] dict
+- [ ] dict — **IN PROGRESS**; fundamentals and the key → value mental model covered. See `python/fundamentals/data-structures/dict/01-dict-fundamentals.md`.
 - [ ] comprehensions
 - [ ] `collections`
 - [ ] choosing the appropriate structure
