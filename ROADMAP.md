@@ -45,6 +45,7 @@ Before teaching new Python material, assess the current ability in:
 - fundamental `for` loop model, including iteration, loop-variable rebinding, post-loop binding, mutation through the loop variable, and effects of modifying a list during iteration
 - Python Tuple fundamentals, including ordered access, immutability vs rebinding, mutable objects stored inside tuples, and basic unpacking
 - Python Tuple creation and syntax, including comma-based tuple creation, single-element tuples, empty tuples, nested tuples, and `tuple()` construction
+- Python Tuple packing and unpacking, including extended unpacking with `*`, function-call unpacking with `*`, argument collection with `*args`, keyword unpacking/collection with `**kwargs`, swapping, and reference behavior with mutable objects
 
 ### Exit condition
 
@@ -81,7 +82,7 @@ We know what is already solid, what is weak, and what should be skipped.
 - [x] fundamental `for` loops — **COMPLETE**; covered iteration over lists, loop-variable rebinding and post-loop binding, mutation vs rebinding, nested-object mutation, `+=` vs `+`, and mutation of the iterated list including skipped elements. See `python/fundamentals/for-loops/01-for-loop-fundamentals.md`.
 - [x] tuple — **COMPLETE: fundamentals**; covered ordered access, immutability vs rebinding, mutable objects stored inside tuples, and basic unpacking. See `python/fundamentals/data-structures/tuple/01-tuple-fundamentals.md`.
 - [x] tuple creation and syntax — **COMPLETE**; covered comma-based tuple creation, single-element tuple syntax, empty/nested tuples, and `tuple()` construction. See `python/fundamentals/data-structures/tuple/02-tuple-creation-and-syntax.md`.
-- [ ] tuple packing and unpacking
+- [x] tuple packing and unpacking — **COMPLETE**; covered tuple packing, iterable unpacking, extended unpacking with `*`, starred-target list behavior, `_` as a conventional throwaway binding, `func(*values)`, `*args`, `**kwargs`, swapping, and mutable-object reference behavior. See `python/fundamentals/data-structures/tuple/03-tuple-packing-and-unpacking.md`.
 - [ ] set
 - [ ] dict
 - [ ] comprehensions
