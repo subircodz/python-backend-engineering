@@ -8,6 +8,8 @@ Solutions are intentionally kept outside this file. Once a practical is submitte
 
 ## Practical 01 — Shopping Cart
 
+[Reviewed solution](01-shopping-cart/submitted.py)
+
 Design and implement a small shopping-cart system for an online store.
 
 ### Requirements
@@ -37,6 +39,8 @@ Design and implement a small shopping-cart system for an online store.
 ---
 
 ## Practical 02 — Server Health Monitor
+
+[Reviewed solution](02-server-health-monitor/submitted.py)
 
 Design and implement a small server-health monitoring system.
 
