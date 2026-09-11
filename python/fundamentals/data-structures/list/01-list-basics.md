@@ -1,27 +1,57 @@
 # List Basics
 
-## Mental Model
-
 A Python list is a **mutable, ordered collection of objects**.
-
-- **Ordered** means each element has a defined position in the sequence.
-- It does **not** mean the elements are sorted.
-- **Mutable** means the existing list object can be changed after creation.
-- A list can contain objects of different types.
-
-Example:
 
 ```python
 items = [10, 5000, 2, "Subir"]
 ```
 
-The elements are not sorted, but they are ordered because each element has a defined position.
+## What “ordered” means
 
-## Key Distinction
+Each object has a position in the list.
 
-- Ordered → positional sequence
-- Sorted → arranged according to a comparison or criterion
+```text
+10      → position 0
+5000    → position 1
+2       → position 2
+"Subir" → position 3
+```
 
-## Engineering Priority
+Ordered does **not** mean sorted.
 
-This mental model is important because indexing, mutation, iteration, and list operations all depend on the idea that a list stores objects in defined positions.
+The example above is ordered because every item has a position. It is not sorted because the values are not arranged by a sorting rule.
+
+## What “mutable” means
+
+The same list object can be changed after it is created.
+
+```python
+items[0] = 99
+```
+
+The list now contains `99` at position `0`.
+
+The list object was changed; a new list was not required.
+
+## Lists store objects
+
+A list can contain objects of different types:
+
+```python
+items = [10, "Subir", [1, 2], None]
+```
+
+The important point is that a list stores references to objects. The objects themselves do not have to be the same type.
+
+## Ordered vs sorted
+
+- **Ordered** → elements have positions.
+- **Sorted** → elements are arranged using a sorting rule.
+
+Do not use these words as if they mean the same thing.
+
+## Why this matters
+
+Indexing, iteration, mutation, slicing, and list methods all depend on this basic model:
+
+> A list is one mutable object containing objects at defined positions.
