@@ -1,16 +1,23 @@
 # List Aliasing and References
 
-Consider:
+Consider this code:
 
 ```python
 users = ["Alice", "Bob", "Charlie"]
 other = users
+
 users[1] = "Subir"
 ```
 
-Both `users` and `other` refer to the **same list object**.
+`users` and `other` now refer to the **same list object**.
 
-Therefore:
+```text
+users ──┐
+        ├──> ["Alice", "Subir", "Charlie"]
+other ──┘
+```
+
+So both names see the change:
 
 ```python
 users
@@ -20,8 +27,24 @@ other
 # ["Alice", "Subir", "Charlie"]
 ```
 
-## Mental Model
+## Assignment does not copy the list
 
-Assignment of a list variable does not automatically copy the list. It creates another reference to the same object.
+This:
 
-This matters whenever mutable objects are shared between parts of an application.
+```python
+other = users
+```
+
+does not create another list. It creates another reference to the existing list.
+
+If the list is mutated through either name, the change is visible through the other name as well.
+
+## Why this matters
+
+Shared mutable objects can be useful, but they can also cause unexpected changes when different parts of an application hold references to the same object.
+
+When reviewing code, ask:
+
+> Are these two names referring to the same mutable object, or are they referring to separate objects?
+
+That question is often more useful than simply saying that a variable “contains a list.”
