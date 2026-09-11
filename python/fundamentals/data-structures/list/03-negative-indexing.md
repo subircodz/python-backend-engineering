@@ -1,16 +1,44 @@
 # Negative Indexing
 
-Python lists support negative indices from the right side.
+Python lists support indexing from the **right side** using negative numbers.
 
 ```python
 users = ["Alice", "Bob", "Charlie"]
 ```
 
-- `users[-1]` → `"Charlie"`
-- `users[-2]` → `"Bob"`
+```python
+users[-1]   # "Charlie"
+users[-2]   # "Bob"
+users[-3]   # "Alice"
+```
 
 ## Mental Model
 
-`-1` means the last element, `-2` means the second-last element, and so on.
+`-1` means the last object.
 
-Negative indexing is useful when the position is relative to the end of the list.
+Then Python moves left as the number becomes more negative:
+
+```text
+-3      -2      -1
+ ↓       ↓       ↓
+Alice   Bob    Charlie
+```
+
+Negative indexing is useful when the code cares about a position relative to the end of the list.
+
+## Invalid index
+
+If the negative index goes beyond the start of the list, Python raises `IndexError`.
+
+```python
+users[-4]
+# IndexError
+```
+
+## Why this matters
+
+Negative indexing avoids calculating the last position manually.
+
+> `-1` → last object
+>
+> `-2` → second-last object
