@@ -1,26 +1,49 @@
 # Updating a List by Index
 
-An existing element can be replaced by assigning to its index.
+Use index assignment when an existing list element needs to be replaced.
 
 ```python
 users = ["Alice", "Bob", "Charlie"]
+
 users[1] = "Subir"
 ```
 
-Result:
+The list becomes:
 
 ```python
 ["Alice", "Subir", "Charlie"]
 ```
 
-## Mental Model
+## What changes
 
-Index assignment **rebinds the slot at that index** to another object.
+Index assignment changes the object stored in one existing list slot.
 
-It does not insert an additional element:
+- The list object stays the same.
+- The list length stays the same.
+- The old object at that index is replaced.
 
-- the list object remains the same
-- the list length remains unchanged
-- the object previously stored at that index is replaced in that slot
+It does **not** add a new element.
 
-This is different from `insert()`, which adds a new element and shifts existing elements.
+## Compare with `insert()`
+
+`insert()` adds an element and shifts existing elements.
+
+```python
+users = ["Alice", "Bob", "Charlie"]
+users.insert(1, "Subir")
+```
+
+Now the list has four elements:
+
+```python
+["Alice", "Subir", "Bob", "Charlie"]
+```
+
+So the decision is simple:
+
+- Replace an existing position → index assignment.
+- Add a new element at a position → `insert()`.
+
+## Engineering mental model
+
+`users[1] = "Subir"` does not rebind the name `users`. It changes what the list stores at index `1`.
