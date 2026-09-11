@@ -95,3 +95,15 @@ Design and implement a small notification system for an application.
 - Which class should be responsible for deciding whether a notification method is enabled?
 - What should happen if the caller tries to remove a method that is not enabled?
 - How can the design remain simple while still allowing another notification type to be added later?
+
+---
+
+## Practical 04 — Order Processing Summary
+
+**Status: PARKED — prerequisite concept needed before implementation.**
+
+[Scenario details](04-order-processing-summary/question.md)
+
+This practical was intentionally parked after identifying that its duplicate-order requirement depends on idempotent processing. Idempotency has not yet been taught in this learning path, so implementation should resume only after that concept has been covered.
+
+The practical remains available for later completion. No solution is implied by this note.
