@@ -1,18 +1,18 @@
 # List Slicing
 
-Slicing follows:
+List slicing selects part of a list using this form:
 
 ```python
 sequence[start:stop:step]
 ```
 
-Core rules:
+The rules are:
 
-- `start` is included
-- `stop` is excluded
-- `step` controls movement
-- positive step moves forward
-- negative step moves backward
+- `start` is included.
+- `stop` is excluded.
+- `step` controls how the indexes are visited.
+- A positive `step` moves forward.
+- A negative `step` moves backward.
 
 Example:
 
@@ -25,33 +25,53 @@ numbers[2:]   # [30, 40, 50]
 numbers[:]    # [10, 20, 30, 40, 50]
 ```
 
-With a step:
+## Step
+
+`step` decides how far Python moves between selected indexes.
 
 ```python
 numbers = [0, 1, 2, 3, 4, 5, 6]
+
 numbers[1:6:2]
 # [1, 3, 5]
 ```
 
-## Negative Step
+Python starts at index `1`, stops before index `6`, and moves two positions at a time.
 
-```python
-numbers[::-1]
-# reversed order
-```
+## Negative step
 
-A negative step means movement is backward. Reversal is the resulting behaviour when the slice covers the sequence in that direction.
-
-Example:
+A negative step makes Python move from right to left.
 
 ```python
 numbers = [10, 20, 30, 40, 50, 60]
-numbers[4:1:-1]   # [50, 40, 30]
-numbers[5:1:-2]   # [60, 40]
+
+numbers[::-1]
+# [60, 50, 40, 30, 20, 10]
+
+numbers[4:1:-1]
+# [50, 40, 30]
+
+numbers[5:1:-2]
+# [60, 40]
 ```
 
-## Mental Model
+## Object behaviour
 
-> `start` = where to begin, `stop` = where to stop (excluded), `step` = how far to move.
+A normal slice creates a **new list**. The new list contains references to the selected elements.
 
-A normal slice creates a new list containing references to the selected elements.
+So slicing creates a new outer list, but it does not automatically deep-copy mutable objects inside it.
+
+```python
+items = [[1, 2], [3, 4]]
+other = items[:]
+```
+
+`items` and `other` are different list objects, but their inner lists are shared.
+
+## Engineering mental model
+
+Think of a slice as:
+
+> Start here → move using `step` → stop before `stop`.
+
+For a normal slice, the original list is not changed.
