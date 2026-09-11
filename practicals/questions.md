@@ -107,3 +107,42 @@ Design and implement a small notification system for an application.
 This practical was intentionally parked after identifying that its duplicate-order requirement depends on idempotent processing. Idempotency has not yet been taught in this learning path, so implementation should resume only after that concept has been covered.
 
 The practical remains available for later completion. No solution is implied by this note.
+
+---
+
+## Practical 05 — Access Permission Manager
+
+[Reviewed solution](05-access-permission-manager/submitted.py)
+
+Design and implement a small access-permission system for an application.
+
+### Requirements
+
+1. A user can have multiple permissions.
+2. Supported permissions are `READ`, `WRITE`, `DELETE`, and `ADMIN`.
+3. A new user should have `READ` permission by default.
+4. `WRITE` includes `READ` access.
+5. `DELETE` includes `READ` and `WRITE` access.
+6. `ADMIN` includes all permissions.
+7. Provide a way to add a permission.
+8. Prevent duplicate permissions.
+9. Provide a way to remove a permission.
+10. Removing `READ` removes all current permissions.
+11. Removing `WRITE` removes `WRITE` and any higher permissions that depend on it.
+12. Provide a way to check whether a user has a particular permission.
+13. Provide a way to view the user's current access level.
+14. Handle invalid permission operations with an appropriate custom exception.
+15. Use classes and an enum where they make sense.
+16. Do not use a database, files, HTTP, or external services.
+17. Keep the design simple and suitable for adding another permission later.
+
+### Design Questions
+
+- What objects/classes are needed?
+- Which object should own a user's permissions?
+- What data structure should hold multiple permissions?
+- How should duplicate permissions be prevented?
+- Which object should check whether a permission is available?
+- What should happen when an unknown permission is requested?
+- What should happen when a permission is removed?
+- Where should the permission hierarchy rules live?
