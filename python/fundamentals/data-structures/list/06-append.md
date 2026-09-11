@@ -1,23 +1,23 @@
 # `append()`
 
-`append(object)` adds exactly **one object** to the end of the existing list.
+`append(object)` adds **one object** to the end of the existing list.
 
 ```python
 users = ["Alice", "Bob"]
 users.append("Charlie")
 ```
 
-Result:
+The same list object is changed:
 
 ```python
 ["Alice", "Bob", "Charlie"]
 ```
 
-The operation mutates the existing list.
+## What matters
 
-## Important Edge Case
+`append()` adds the object you pass. It does **not** open that object and add its elements.
 
-If the object passed to `append()` is itself a list, that list becomes one element:
+For example:
 
 ```python
 users = ["Alice", "Bob"]
@@ -30,4 +30,26 @@ Result:
 ["Alice", "Bob", ["Charlie", "David"]]
 ```
 
-`append()` adds the supplied object itself; it does not iterate through it.
+The inner list is one element of `users`.
+
+## `append()` and mutation
+
+`append()` mutates the existing list. It does not create a new outer list for the operation.
+
+This matters when another name refers to the same list:
+
+```python
+users = ["Alice"]
+other = users
+users.append("Bob")
+```
+
+Both names now see:
+
+```python
+["Alice", "Bob"]
+```
+
+## Use it when
+
+Use `append()` when one new object should become one new list element.
