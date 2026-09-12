@@ -58,6 +58,9 @@ Before teaching new Python material, assess the current ability in:
 - Python Dictionary removal operations, including `del`, `pop()`, `popitem()`, and `clear()`, with their return-value and mutation differences
 - Python Dictionary membership, including key checks with `in`, value checks with `values()`, pair checks with `items()`, and validation patterns
 - Python Dictionary iteration and transformation, including filtering, building new dictionaries, changing existing values during iteration, and safely handling structural changes during iteration
+- Python Dictionary nested structures, `update()`, `setdefault()`, and `defaultdict`
+- practical dictionary transformations and retrieval patterns
+- Access Permission Manager practical using dictionary/set-related design decisions and in-memory state
 
 ### Exit condition
 
@@ -97,7 +100,7 @@ We know what is already solid, what is weak, and what should be skipped.
 - [x] tuple packing and unpacking — **COMPLETE**; covered tuple packing, iterable unpacking, extended unpacking with `*`, starred-target list behavior, `_` as a conventional throwaway binding, `func(*values)`, `*args`, `**kwargs`, swapping, and mutable-object reference behavior. See `python/fundamentals/data-structures/tuple/03-tuple-packing-and-unpacking.md`.
 - [x] tuple methods and operations — **COMPLETE**; covered `count()`, `index()`, `+`, `*`, `in`/`not in`, indexing, slicing, `len()`, `min()`/`max()`/`sum()`, lexicographical ordering, equality, `+=` as new-tuple creation plus rebinding, and mutable objects stored inside tuples. See `python/fundamentals/data-structures/tuple/04-tuple-methods-and-operations.md`.
 - [x] set — **COMPLETE**; covered set fundamentals, creation and syntax, set literals, empty-set syntax, `set()` construction from iterables, hashable element requirements, string/iterable behavior, literal-vs-constructor choice, type preservation, methods and operations, set relationships, in-place operations, mutation vs rebinding, and practical production use cases. See `python/fundamentals/data-structures/set/01-set-fundamentals.md`, `02-set-creation-and-syntax.md`, and `03-set-methods-and-operations.md`.
-- [ ] dict — **IN PROGRESS**; covered fundamentals, creation/syntax, key access and mutation, `get()`, dictionary views and iteration, removal operations, membership, filtering/transformation, and safe handling of structural changes during iteration. Remaining work includes nested dictionaries, additional useful methods such as `update()`/`setdefault()`, practical backend transformations, retrieval, and a practical exercise. See `python/fundamentals/data-structures/dict/01-dict-fundamentals.md` through `08-dict-iteration-and-transformation.md`.
+- [ ] dict — **IN PROGRESS**; core dictionary behavior and advanced methods are complete. Covered fundamentals, creation/syntax, key access and mutation, `get()`, views and iteration, removal operations, membership, filtering/transformation, nested dictionaries, `update()`, `setdefault()`, `defaultdict`, practical backend transformations, and retrieval. **Remaining: one practical implementation to complete the dictionary track.** See `python/fundamentals/data-structures/dict/01-dict-fundamentals.md` onward.
 - [ ] comprehensions
 - [ ] `collections`
 - [ ] choosing the appropriate structure
