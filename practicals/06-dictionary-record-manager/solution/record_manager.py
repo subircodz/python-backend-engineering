@@ -97,6 +97,21 @@ class RecordManager:
             f"updated."
             )
 
+    def get_active_users(self) -> list[dict]:
+        """
+        Provides all active users if found else returns empty
+        list.
+
+        Returns:
+            The records if active users found else returns 
+            empty list.
+        """
+        active_users: list[dict] = []
+        for record in self.records:
+            if record["active"]:
+                active_users.append(record)
+        return active_users
+            
 
 
 user = RecordManager()
@@ -104,14 +119,9 @@ result = user.add_record(
         "001", "Subir", "ss@aol.com", "Developer", True
         )
 print(result)
-print(user.get_record("001"))
+result2 = user.add_record(
+        "002", "gray", "ss@aol.com", "Developer", False
+        )
+print(user.get_active_users())
 
-    
-update = user.update_records(
-    user_id="001",
-    name="gray",
-    email="foo@spam.com",
-    hello="world"
-)
-print(update)
     

@@ -23,4 +23,18 @@ def test_update_record():
     )
     assert update == "Record with ID 001 updated."
 
+def test_get_active_users():
+    user = RecordManager()
+    user.add_record(
+            "001", "Subir", "ss@aol.com", "Developer", True
+            )
+    user.add_record(
+            "002", "Subir1", "ss1@aol.com", "Developer", False
+            )
+    user.add_record(
+            "003", "Subir2", "ss2@aol.com", "Developer", True
+            )
+
+    # expected 2 records
+    assert len(user.get_active_users()) == 2
 
