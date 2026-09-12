@@ -58,3 +58,42 @@ def test_get_users_by_dept():
     assert len(users) == 3
     assert all(record["department"] == "Developer" for record in users)
 
+def test_remove_user():
+    user = RecordManager()
+    user.add_record(
+            "001", "Subir", "ss@aol.com", "Developer", True
+            )
+
+    user.add_record(
+            "002", "gray2", "ss@aol.com", "Tester", False
+            )
+    user.add_record(
+            "003", "gray3", "ss@aol.com", "Developer", False
+            )
+    user.add_record(
+            "004", "gray4", "ss@aol.com", "Developer", False
+            )
+    check = user.remove_user("003")
+    assert check == "User ID: 003 removed."
+
+def test_summary():
+    user = RecordManager()
+    user.add_record(
+            "001", "Subir", "ss@aol.com", "Developer", True
+            )
+    user.add_record(
+            "002", "gray2", "ss@aol.com", "Tester", False
+            )
+    user.add_record(
+            "003", "gray3", "ss@aol.com", "Developer", False
+            )
+    user.add_record(
+            "004", "gray4", "ss@aol.com", "Developer", False
+            )
+    test_result = user.summary()
+    assert test_result == (
+            "Total Users   : 4"
+            "\nActive Users  : 1"
+        )
+
+

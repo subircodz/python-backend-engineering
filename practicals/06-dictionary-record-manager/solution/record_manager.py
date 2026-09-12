@@ -130,23 +130,41 @@ class RecordManager:
                 users_in_dept.append(record)
         return users_in_dept
 
-            
+    def remove_user(self, user_id: str) -> str:
+        """
+        Removes a user from record with an ID, if exists.
 
+        Args:
+            user_id: The ID for which the record has to be
+            removed.
 
-user = RecordManager()
-result = user.add_record(
-        "001", "Subir", "ss@aol.com", "Developer", True
+        Returns:
+            A message that the records has been removed.
+
+        Raises:
+            UserKeyError: If record does not exist with the
+            user id.
+        """
+
+        get_user = self.get_record(user_id)
+        if get_user is not None:
+            self.records.remove(get_user)
+            return f"User ID: {user_id} removed."
+        raise UserKeyError(
+            f"Record not found with {user_id}."
         )
 
-result2 = user.add_record(
-        "002", "gray2", "ss@aol.com", "Tester", False
-        )
-result3 = user.add_record(
-        "003", "gray3", "ss@aol.com", "Developer", False
-        )
-result4 = user.add_record(
-        "004", "gray4", "ss@aol.com", "Developer", False
-        )
-print(user.get_users_by_dept("Developer"))
+    def summary(self) -> str:
+        """
+        Provides a summary of total users and active users
 
-    
+        Returns:
+            A summary of total users and active users.
+        """
+        total_records = len(self.records)
+        active_users = len(self.get_active_users())
+        result = (
+            f"Total Users   : {total_records}"
+            f"\nActive Users  : {active_users}"
+        )
+        return result
