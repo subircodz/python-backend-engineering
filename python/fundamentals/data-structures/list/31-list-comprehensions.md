@@ -68,7 +68,7 @@ A condition can be added with `if`:
 active_users = [record for record in users if record["active"]]
 ```
 
-The `if` controls which items are included. The expression before `for` controls what is placed into the new list.
+The trailing `if` controls which items are included. The expression before `for` controls what is placed into the new list.
 
 ## Filtering + Transformation
 
@@ -94,6 +94,55 @@ Conceptually:
 iterate -> check condition -> produce expression -> collect
 ```
 
+## Conditional Expressions
+
+A conditional expression can change the value produced for each item:
+
+```python
+labels = [
+    "even" if num % 2 == 0 else "odd"
+    for num in numbers
+]
+```
+
+This is different from a trailing filter.
+
+### Trailing `if` — Filtering
+
+```python
+[num for num in numbers if num % 2 == 0]
+```
+
+Only even numbers are included.
+
+### `if ... else` — Conditional Transformation
+
+```python
+["even" if num % 2 == 0 else "odd" for num in numbers]
+```
+
+Every number is included, but the produced value changes based on the condition.
+
+### Filtering + Conditional Transformation
+
+Both can be used together:
+
+```python
+[
+    (record["name"], "adult")
+    if record["age"] >= 18
+    else (record["name"], "minor")
+    for record in users
+    if record["active"]
+]
+```
+
+The conceptual flow is:
+
+```text
+iterate -> filter -> conditionally transform -> collect
+```
+
 ## Engineering Judgement
 
 A comprehension is not automatically better than a normal loop.
@@ -101,6 +150,8 @@ A comprehension is not automatically better than a normal loop.
 Use a comprehension when the operation is simple and readable. Prefer a normal loop when the logic becomes complex, contains multiple business decisions, requires detailed error handling, or becomes difficult to understand as a single expression.
 
 Do not optimise for fewer lines at the expense of readability.
+
+PEP 8 readability is part of the implementation standard throughout the roadmap.
 
 ## Evaluation Behaviour
 
@@ -115,14 +166,15 @@ Covered here:
 - list comprehension syntax
 - transformation
 - value extraction
-- filtering with `if`
+- filtering with trailing `if`
 - filtering + transformation
+- conditional expressions inside comprehensions
+- filtering + conditional transformation
 - basic readability/engineering judgement
 - eager evaluation
 
 Not covered yet:
 
-- conditional expressions inside comprehensions
 - nested comprehensions
 - set comprehensions
 - dictionary comprehensions
@@ -134,5 +186,6 @@ Not covered yet:
 2. Extract names from a list of user dictionaries.
 3. Filter active user records.
 4. Filter active users and extract their names.
+5. Filter active users and produce `(name, "adult"/"minor")` tuples using a conditional expression.
 
-All four exercises were completed correctly.
+All completed exercises were correct after the active-user filtering requirement was added to the final exercise.
