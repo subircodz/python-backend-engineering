@@ -1,4 +1,3 @@
-import pytest
 from record_manager import RecordManager
 
 
@@ -23,4 +22,5 @@ def test_update_record():
     email="foo@spam.com"
     )
     assert update == "Record with ID 001 updated."
+
 
