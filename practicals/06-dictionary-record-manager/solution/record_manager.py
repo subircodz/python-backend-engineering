@@ -111,6 +111,25 @@ class RecordManager:
             if record["active"]:
                 active_users.append(record)
         return active_users
+
+    def get_users_by_dept(self, dept: str) -> list[dict]:
+        """
+        Returns all records by department. Returns empty list 
+        if no records found.
+
+        Args:
+            dept: The department name by which records are to 
+            to be provided.
+
+        Returns:
+            The list of records for the department.
+        """
+        users_in_dept: list[dict] = []
+        for record in self.records:
+            if record['department'] == dept:
+                users_in_dept.append(record)
+        return users_in_dept
+
             
 
 
@@ -118,10 +137,16 @@ user = RecordManager()
 result = user.add_record(
         "001", "Subir", "ss@aol.com", "Developer", True
         )
-print(result)
+
 result2 = user.add_record(
-        "002", "gray", "ss@aol.com", "Developer", False
+        "002", "gray2", "ss@aol.com", "Tester", False
         )
-print(user.get_active_users())
+result3 = user.add_record(
+        "003", "gray3", "ss@aol.com", "Developer", False
+        )
+result4 = user.add_record(
+        "004", "gray4", "ss@aol.com", "Developer", False
+        )
+print(user.get_users_by_dept("Developer"))
 
     

@@ -38,3 +38,23 @@ def test_get_active_users():
     # expected 2 records
     assert len(user.get_active_users()) == 2
 
+def test_get_users_by_dept():
+    user = RecordManager()
+    user.add_record(
+            "001", "Subir", "ss@aol.com", "Developer", True
+            )
+
+    user.add_record(
+            "002", "gray2", "ss@aol.com", "Tester", False
+            )
+    user.add_record(
+            "003", "gray3", "ss@aol.com", "Developer", False
+            )
+    user.add_record(
+            "004", "gray4", "ss@aol.com", "Developer", False
+            )
+    # expected 3
+    users = user.get_users_by_dept("Developer")
+    assert len(users) == 3
+    assert all(record["department"] == "Developer" for record in users)
+
