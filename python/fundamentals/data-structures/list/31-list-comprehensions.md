@@ -143,6 +143,95 @@ The conceptual flow is:
 iterate -> filter -> conditionally transform -> collect
 ```
 
+## Nested List Comprehensions
+
+A nested comprehension represents nested loops.
+
+Normal nested loops:
+
+```python
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+]
+
+result = []
+
+for row in matrix:
+    for number in row:
+        result.append(number)
+```
+
+Equivalent nested comprehension:
+
+```python
+result = [
+    number
+    for row in matrix
+    for number in row
+]
+```
+
+Mental model:
+
+> For each `row` in `matrix`, for each `number` in `row`, produce `number`.
+
+The order of the `for` clauses follows the same order as the normal nested loops.
+
+### Nested Filtering
+
+A condition can be applied to the innermost iteration:
+
+```python
+result = [
+    number
+    for row in matrix
+    for number in row
+    if number % 2 == 0
+]
+```
+
+This produces only the even numbers from all rows.
+
+### Nested Records
+
+Nested comprehensions are also useful when records are grouped inside another collection:
+
+```python
+users = [
+    [
+        {"name": "Subir", "active": True},
+        {"name": "Rahul", "active": False},
+    ],
+    [
+        {"name": "Amit", "active": True},
+        {"name": "Priya", "active": True},
+    ],
+]
+
+active_names = [
+    record["name"]
+    for group in users
+    for record in group
+    if record["active"]
+]
+```
+
+The conceptual flow is:
+
+```text
+outer iteration -> inner iteration -> filter -> transform -> collect
+```
+
+### Engineering Judgement
+
+Nested comprehensions are not automatically better than nested loops.
+
+Use them when the iteration and transformation remain easy to read. Prefer normal loops when there are multiple business decisions, complex branching, detailed error handling, or enough nesting that the reader has to mentally decode the expression.
+
+The goal is readable Python, not the fewest possible lines.
+
 ## Engineering Judgement
 
 A comprehension is not automatically better than a normal loop.
@@ -170,12 +259,13 @@ Covered here:
 - filtering + transformation
 - conditional expressions inside comprehensions
 - filtering + conditional transformation
+- nested list comprehensions
+- nested iteration and nested filtering
 - basic readability/engineering judgement
 - eager evaluation
 
 Not covered yet:
 
-- nested comprehensions
 - set comprehensions
 - dictionary comprehensions
 - generator expressions
@@ -187,5 +277,11 @@ Not covered yet:
 3. Filter active user records.
 4. Filter active users and extract their names.
 5. Filter active users and produce `(name, "adult"/"minor")` tuples using a conditional expression.
+6. Flatten a nested list with a nested comprehension.
+7. Flatten a nested list and keep only even numbers.
+8. Extract active names from nested user groups.
+9. Filter nested employee records by salary and extract their names.
+10. Filter nested employee records by salary and produce formatted strings.
+11. Apply a string method as the transformation in a nested comprehension.
 
 All completed exercises were correct after the active-user filtering requirement was added to the final exercise.
