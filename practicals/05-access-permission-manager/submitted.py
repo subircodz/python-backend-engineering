@@ -24,36 +24,22 @@ class User:
         self.data: list[str] = []
 
     def add_permission(self, permission: Permission) -> str:
-        """Grant a permission and its lower-level permissions to the user."""
-        if permission == Permission.READ:
-            if Permission.READ in self.permissions:
-                raise UserPermissionError(
-                    f"{permission.value} permission already exists for {self.user}."
-                )
-            self.permissions.add(Permission.READ)
+        """Grant a permission and its lower-level permissions."""
+        if permission in self.permissions:
+            raise UserPermissionError(
+                f"{permission.value} permission already exists for {self.user}."
+            )
 
-        elif permission == Permission.WRITE:
-            if Permission.WRITE in self.permissions:
-                raise UserPermissionError(
-                    f"{permission.value} permission already exists for {self.user}."
-                )
+        if permission == Permission.WRITE:
             self.permissions.add(Permission.WRITE)
-
         elif permission == Permission.DELETE:
-            if Permission.DELETE in self.permissions:
-                raise UserPermissionError(
-                    f"{permission.value} permission already exists for {self.user}."
-                )
             self.permissions.update({Permission.WRITE, Permission.DELETE})
-
         elif permission == Permission.ADMIN:
-            if Permission.ADMIN in self.permissions:
-                raise UserPermissionError(
-                    f"{permission.value} permission already exists for {self.user}."
-                )
             self.permissions.update(
                 {Permission.WRITE, Permission.DELETE, Permission.ADMIN}
             )
+        elif permission == Permission.READ:
+            self.permissions.add(Permission.READ)
 
         return f"{permission.value} permission granted to {self.user}."
 
@@ -66,43 +52,32 @@ class User:
 
         if permission == Permission.READ:
             self.permissions.clear()
-
         elif permission == Permission.WRITE:
             self.permissions.difference_update(
                 {Permission.WRITE, Permission.DELETE, Permission.ADMIN}
             )
-
-        elif permission == Permission.DELETE:
-            self.permissions.remove(Permission.DELETE)
-
-        elif permission == Permission.ADMIN:
-            self.permissions.remove(Permission.ADMIN)
+        else:
+            self.permissions.remove(permission)
 
         return f"{permission.value} permission removed from {self.user}."
 
-    def check_permission(self, permission: Permission) -> str:
-        """Check whether the user currently has the requested permission."""
-        if permission in self.permissions or Permission.ADMIN in self.permissions:
-            return f"{self.user} has {permission.value} permission."
-
-        raise UserPermissionError(
-            f"{permission.value} permission not found for {self.user}."
-        )
+    def check_permission(self, permission: Permission) -> None:
+        """Raise an error when the user cannot perform the requested action."""
+        if permission not in self.permissions and Permission.ADMIN not in self.permissions:
+            raise UserPermissionError(
+                f"{permission.value} permission not found for {self.user}."
+            )
 
     def access_me(self) -> str:
         """Return a readable summary of the user's current access level."""
         if Permission.ADMIN in self.permissions:
             return f"{self.user} has FULL permission."
-
         if Permission.DELETE in self.permissions:
             return f"{self.user} has READ, WRITE and DELETE permission."
-
         if Permission.WRITE in self.permissions:
             return f"{self.user} has READ and WRITE permission."
-
         if Permission.READ in self.permissions:
             return f"{self.user} has READ permission."
-
         return f"{self.user} has NO permission."
 
     def read_list(self) -> list[str]:
@@ -111,7 +86,7 @@ class User:
         return self.data.copy()
 
     def append_item(self, item: str) -> str:
-        """Append an item to the list when WRITE permission is available."""
+        """Append an item when WRITE permission is available."""
         self.check_permission(Permission.WRITE)
         self.data.append(item)
         return f"Appended '{item}' to list."
@@ -146,12 +121,42 @@ class AllUsers:
         for user in self.save_users:
             if user.user == user_name:
                 return user
-
         raise UserPermissionError(f"User {user_name} not found.")
 
 
-subir = User("Subir")
-users = AllUsers()
+def run_operation(user: User) -> None:
+    """Run all list operations and show which ones are allowed or rejected."""
+    print(f"\n--- Operations for {user.user} ---")
 
-print(users.add_user(subir))
-print(subir.list_operation() if hasattr(subir, "list_operation") else subir.read_list())
+    try:
+        print(f"[SUCCESS] READ: {user.read_list()}")
+    except UserPermissionError as error:
+        print(f"[REJECTED] READ: {error}")
+
+    try:
+        print(f"[SUCCESS] WRITE: {user.append_item('New Item')}")
+    except UserPermissionError as error:
+        print(f"[REJECTED] WRITE: {error}")
+
+    try:
+        print(f"[SUCCESS] DELETE: {user.clear_list()}")
+    except UserPermissionError as error:
+        print(f"[REJECTED] DELETE: {error}")
+
+    try:
+        print(
+            f"[SUCCESS] ADMIN: "
+            f"{user.full_access_reset(['Admin Data 1', 'Admin Data 2'])}"
+        )
+    except UserPermissionError as error:
+        print(f"[REJECTED] ADMIN: {error}")
+
+
+user_1 = User("Subir")
+users = AllUsers()
+users.add_user(user_1)
+
+run_operation(users.find_user("Subir"))
+
+print(user_1.add_permission(Permission.ADMIN))
+run_operation(user_1)
