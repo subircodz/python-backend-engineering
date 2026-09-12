@@ -1,3 +1,8 @@
+from typing import Any
+
+class UserKeyError(Exception):
+    pass
+
 class RecordManager:
     def __init__(self):
         self.records: list[dict] = []
@@ -61,6 +66,51 @@ class RecordManager:
                 return record
         return None
 
-    
+    def update_records(self, **kwargs: Any) -> str:
+        """
+        Receives a dictionary containing fields to be updated 
+        for a record, and updates the dictionary if User ID
+        found.
 
+        Args:
+            **kwargs: The dictionary containing the updated 
+            fields.
+
+        Returns:
+            A message that the record has been updated if 
+            record found.
+
+        Raises:
+            UserKeyError: If record not found with the user_id.
+        """
+        fetch_record = self.get_record(kwargs['user_id'])
+        if fetch_record is None:
+            raise UserKeyError(
+                f"User ID: {kwargs['user_id']} not found."
+                )
+        for key in fetch_record:
+            if key in kwargs:
+                fetch_record[key] = kwargs[key]
+        return (
+            f"Record with ID {kwargs['user_id']} "
+            f"updated."
+            )
+
+
+
+user = RecordManager()
+result = user.add_record(
+        "001", "Subir", "ss@aol.com", "Developer", True
+        )
+print(result)
+print(user.get_record("001"))
+
+    
+update = user.update_records(
+    user_id="001",
+    name="gray",
+    email="foo@spam.com",
+    hello="world"
+)
+print(update)
     
