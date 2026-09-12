@@ -50,6 +50,25 @@ Explain it in an interview
 
 A topic is considered complete when the learner can use it correctly, explain the mental model, and apply it without relying on a tutorial.
 
+## Teaching and Interview Method
+
+This repository deliberately trains **engineering judgment**, not just Python syntax.
+
+The learning process follows these rules:
+
+1. **Teach first, retrieve later.** New concepts are taught before retrieval questions are used. Retrieval practice is added when requested or when it is useful for consolidation; it is not a gate before every new topic.
+2. **Specification before solution.** For implementation exercises, provide the scenario, constraints, expected behaviour, and expected results without giving away the internal design decision. The learner chooses the data structure, abstraction, control flow, return shape, mutation strategy, or other implementation decision unless that decision is itself the concept being taught.
+3. **Design decisions are part of the exercise.** After implementation, review not only whether the code works, but why the chosen design makes sense and what trade-offs or edge cases exist. If the learner makes a weak design choice, explain the problem and help correct the reasoning rather than supplying the design in advance.
+4. **Interview-style coding.** Exercises increasingly resemble real interviews: first implement from a specification, then explain the design decisions, alternatives, failure cases, and possible improvements.
+5. **Scenario-based completion.** A Python topic is not considered practically complete merely because syntax has been explained. The final step should normally include one or two realistic scenario-based problems combining the concepts covered so far.
+6. **Production context without premature complexity.** Engineering concerns such as validation, contracts, defensive programming, testing, maintainability, and failure handling are introduced when they support the current Python concept. They should not overwhelm the learning objective with architecture that has not yet been taught.
+7. **Test-case thinking starts early.** Even before the formal pytest phase, implementation reviews should consider normal cases, boundary cases, invalid inputs, missing records, mutation effects, and expected failures. Formal testing techniques are taught later in the roadmap.
+8. **Review every implementation on four dimensions:** Python logic, behaviour/contract and documentation, type hints appropriate to the current stage, and test-case thinking.
+9. **Do not give away the answer.** When an exercise is intended to assess design, provide requirements and expected behaviour—not the internal data structure or algorithm—unless the learner explicitly asks for the solution or the design itself is the lesson.
+10. **Record emerging engineering decisions.** When the learning process produces a reusable design principle or an important decision rule, add it to the appropriate repository documentation so the methodology evolves with the work.
+
+The target is not to memorize patterns. The target is to become someone who can receive a requirement, make reasonable implementation decisions, write working Python, defend those decisions in an interview, and recognize weaknesses in their own solution.
+
 ## Target Skill Areas
 
 ### Python
@@ -132,6 +151,7 @@ python-backend-engineering/
 │
 ├── README.md
 ├── ROADMAP.md
+├── LEARNING_ENGINEERING_POLICY.md
 │
 ├── python/
 │   ├── fundamentals/
