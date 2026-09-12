@@ -1,1 +1,7 @@
 .github/
+.pytest_cache/
+__pycache__/
+*.pyc
+.ruff_cache/
+.venv/
+.vscode/
